@@ -4,10 +4,10 @@ import roboticstoolbox as rtb
 from spatialmath import SE3
 
 # --- DH-Roboter definieren ---
-L0 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=1)
-L1 = rtb.PrismaticDH(a=1, alpha=0, theta=0, qlim=[0, 1])
-L2 = rtb.RevoluteDH(a=0.5, alpha=0, d=0)
-L3 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=0, offset=-np.deg2rad(90))
+L0 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=0.85)
+L1 = rtb.PrismaticDH(a=0, alpha=np.deg2rad(-90), theta=np.deg2rad(-90), offset=1)
+L2 = rtb.RevoluteDH(a=0.5, alpha=0, d=0, offset=np.deg2rad(-90))
+L3 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=0, offset=np.deg2rad(-90))
 L4 = rtb.RevoluteDH(a=0, alpha=0, d=0.5)
 
 robot = rtb.DHRobot([L0, L1, L2, L3, L4], name="DemoBot_Linear")
@@ -57,11 +57,11 @@ robot.plot(q_example, block=True)
 
 # Gelenkgrenzen (in rad bzw. m für Linearachse)
 joint_limits = [
-    (-np.pi, np.pi), #Gelenk 1
-    (0, 1),   # Gelenk 2
-    (-np.pi*3/4, np.pi*3/4), # Gelenk 3
-    (-np.pi*3/4, np.pi*3/4),  # Gelenk 4
-    (-np.pi, np.pi)  # Gelenk 5
+    (np.deg2rad(-190), np.deg2rad(190)), #Gelenk 1
+    (0, 0.7),   # Gelenk 2
+    (np.deg2rad(-120), np.deg2rad(120)), # Gelenk 3
+    (np.deg2rad(-30), np.deg2rad(210)),  # Gelenk 4
+    (np.deg2rad(-360), np.deg2rad(360))  # Gelenk 5
 ]
 
 # --- Bewegungsraum durch zufällige Stichproben ---
