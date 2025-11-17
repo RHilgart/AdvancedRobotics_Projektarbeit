@@ -8,7 +8,7 @@ L0 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=0.85)
 L1 = rtb.PrismaticDH(a=0, alpha=np.deg2rad(-90), theta=np.deg2rad(-90), offset=1)
 L2 = rtb.RevoluteDH(a=0.5, alpha=0, d=0, offset=np.deg2rad(-90))
 L3 = rtb.RevoluteDH(a=0, alpha=np.deg2rad(-90), d=0, offset=np.deg2rad(-90))
-L4 = rtb.RevoluteDH(a=0, alpha=0, d=0.5)
+L4 = rtb.RevoluteDH(a=0, alpha=0, d=0.3)
 
 robot = rtb.DHRobot([L0, L1, L2, L3, L4], name="DemoBot_Linear")
 
